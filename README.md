@@ -83,6 +83,16 @@
 
         #AWAC: Advantage-weighted actor critic 
 
-        #CRR : Critic regularized regression 
+        #CRR : Critic regularized regression
+
+
+
+- `Approach 4 : combinations with Behavior Cloning`
+
+        The combination of standard RL and BC.
+
+        #SAC+BC (AWAC - Advantage-weighted actor critic)
+        #TD3+BC
+        
 
 ---
