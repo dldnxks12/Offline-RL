@@ -4,7 +4,7 @@
 
     해당 논문은 off-policy로 인해 발생하는 'Extrapolation Error'를 극복할 수 있는 BCQ를 제안한다.
 
-    - first continuous Deep RL algorithm!
+    off-policy setting에서 extrapolation error가 제일 정말 제일 중요한 factor임을 알려주는 논문.
 
     *keyword : Batch RL / Off policy / Extrapolation Error / VAE
 
