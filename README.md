@@ -7,20 +7,20 @@
 - `Offline RL (Data-driven learning)`
 
         Solving decision-making problems with previously collected datasets.
-        Offline RL agent does not interact with environment during training process.                   
-
-            -> Exploration cost가 높거나 불가능할 때 아주 유용하다.
+        Offline RL agent does not interact with environment during training process.                  
+            - Exploration cost가 높거나 불가능할 때 아주 유용하다.
 
         Most obvious challenge : boostraping from OOD actions (out-of-distribution)
         
-            -> 즉, dataset 내에 없는 action을 수행함으로 인해 발생하는 error가 점점 쌓이게 된다.
-            결과적으로, Q function을 이상하리 만큼 크게 평가하는 문제가 있다고 한다. (왜 크게 평가하는 지는 차차 알아보자.)
+            즉, dataset 내에 없는 action을 수행함으로 인해 발생하는 error가 점점 쌓이게 된다.
+            결과적으로, maximizing operator가 있을 때 Q function을 이상하리 만큼 크게 평가한다.
+            --- overestimation bias 발생 
 
 
         To resolve this problem, several works have proposed to constraint the learned policy
         to be similar to the behavior policy during the learning process.
 
-            -> policy constraint approach 
+            - policy constraint approach 
         
 
         # Behavior Cloning
