@@ -4,7 +4,7 @@
 
     해당 논문은 off-policy로 인해 발생하는 'Extrapolation Error'를 극복할 수 있는 BCQ를 제안한다.
 
-    - first continuous Deep RL algorithm!
+    off-policy setting에서 extrapolation error가 제일 정말 제일 중요한 factor임을 알려주는 논문.
 
     *keyword : Batch RL / Off policy / Extrapolation Error / VAE
 
@@ -168,6 +168,23 @@
         action a를 [-k, k] 범위 내에서 조정해서 섭동 후 출력 
         
 
+---
+
+- `related work`
+
+
+        # Batch RL
+
+              Kernel methods, averager 등의 FA를 이용한 방법은 convergence가 알려져있다.
+              대신, 무한히 많은 데이터 없이는 quality는 알 수 없다.
+
+              Neural network 같은 FA를 사용한 Fitted Q Iteration는 좋긴 한데 수렴이 보장 X
+                  - CS285 lecture 7 참고 
+  
+
+              
+
+  
 
 
             
