@@ -14,7 +14,16 @@
       가장 명확한 문제점은 OOD (out-of-distribution) action에 대한 문제이다.
       - OOD action에 대해서 agent가 이상할 만큼 크게 Q value를 평가한다. (Q-learning setting 에서)
 
+- `Optimistic view`
 
+      offline RL이 online RL 만큼의 성능을 보이기 위해서 그냥 뭔가 특별히 더 해줄 필요가 없다.
+      다만 더 강력한 off-policy 알고리즘을 쓰라는 것이다.
+      어쩌면 단순히 [강력한 off-policy 알고리즘 + 방대한 데이터를 사용하는 것 + offline setting]
+      의 조합이면 해결될 지도 모르겠다.
+
+[optim ref1](https://arxiv.org/abs/1910.01708)  
+[optim ref2](https://arxiv.org/abs/1907.04543)
+      
 ---
 
 
