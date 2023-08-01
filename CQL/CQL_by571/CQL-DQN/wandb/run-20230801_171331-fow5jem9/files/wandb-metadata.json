@@ -1,0 +1,145 @@
+{
+    "os": "Linux-5.4.0-150-generic-x86_64-with-glibc2.10",
+    "python": "3.8.0",
+    "heartbeatAt": "2023-08-01T08:13:31.848789",
+    "startedAt": "2023-08-01T08:13:31.070469",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/cocel/js/Offline-RL/CQL/CQL_by571/CQL-DQN/train.py",
+    "codePath": "CQL/CQL_by571/CQL-DQN/train.py",
+    "git": {
+        "remote": "https://github.com/dldnxks12/Offline-RL.git",
+        "commit": "7d681f31d20e90475a1a5da4094d259ad6673623"
+    },
+    "email": "dldnxks12@naver.com",
+    "root": "/home/cocel/js/Offline-RL",
+    "host": "cocel",
+    "username": "cocel",
+    "executable": "/home/cocel/anaconda3/envs/reinforce/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 880.5682999999999,
+        "min": 800.0,
+        "max": 5820.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 945.861,
+            "min": 800.0,
+            "max": 6400.0
+        },
+        {
+            "current": 811.909,
+            "min": 800.0,
+            "max": 6400.0
+        },
+        {
+            "current": 715.479,
+            "min": 800.0,
+            "max": 6400.0
+        },
+        {
+            "current": 970.97,
+            "min": 800.0,
+            "max": 6400.0
+        },
+        {
+            "current": 1159.375,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 822.073,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 1100.0,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 973.664,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 773.896,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 700.65,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 1028.29,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 825.839,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 1013.091,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 931.186,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 786.479,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 852.382,
+            "min": 800.0,
+            "max": 6300.0
+        },
+        {
+            "current": 800.284,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 799.988,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 799.831,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 800.119,
+            "min": 800.0,
+            "max": 3800.0
+        }
+    ],
+    "disk": {
+        "total": 915.3232879638672,
+        "used": 271.07775115966797
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Ti",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 31.174972534179688
+    }
+}
