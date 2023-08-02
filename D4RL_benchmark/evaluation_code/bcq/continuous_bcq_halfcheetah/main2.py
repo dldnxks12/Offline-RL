@@ -106,32 +106,27 @@ def train_BCQ(env, state_dim, action_dim, max_action, device, output_dir, args):
     # Load buffer
     replay_buffer = utils.ReplayBuffer(state_dim, action_dim, device)
 
+    # --- D4RL_benchmark dataset replay buffer 에 담는 방법 --- #
+    print("USE loaded dataset")
+    dataset = env.get_dataset()
+    N       = dataset['rewards'].shape[0]
+
+    for i in range(N-1):
+        obs       = dataset['observations'][i]
+        new_obs   = dataset['observations'][i+1]
+        action    = dataset['actions'][i]
+        reward    = dataset['rewards'][i]
+        done_bool = bool(dataset['terminals'][i])
+        replay_buffer.add(obs, action, new_obs, reward, done_bool)
+    print('Loaded buffer')
+    # --- D4RL_benchmark dataset replay buffer 에 담는 방법 --- #
+
 
     """
-    
-    # --- D4RL dataset replay buffer 에 담는 방법 --- #     
-    
-    # print("USE loaded dataset")
-    # dataset = env.get_dataset()
-    # N       = dataset['rewards'].shape[0]
-    # 
-    # for i in range(N-1):
-    #     obs       = dataset['observations'][i]
-    #     new_obs   = dataset['observations'][i+1]
-    #     action    = dataset['actions'][i]
-    #     reward    = dataset['rewards'][i]
-    #     done_bool = bool(dataset['terminals'][i])
-    #     replay_buffer.add(obs, action, new_obs, reward, done_bool)
-    # print('Loaded buffer')
-    
-    # --- D4RL dataset replay buffer 에 담는 방법 --- # 
-    
-    """
-
     # or manually load replay buffer
     print("USE trained dataset from behavioral agents")
     replay_buffer.load(f"./buffers/{buffer_name}")
-    
+    """
     evaluations    = []
     episode_num    = 0
     done           = True
@@ -171,7 +166,7 @@ def eval_policy(policy, env_name, seed, eval_episodes=10):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env_name", default="halfcheetah-random-v0")    # OpenAI gym environment name
+    parser.add_argument("--env_name", default="halfcheetah-expert-v0")    # OpenAI gym environment name
     parser.add_argument("--seed", default=0, type=int)              # Sets Gym, PyTorch and Numpy seeds
     parser.add_argument("--buffer_name", default="Robust")          # Prepends name to filename
     parser.add_argument("--eval_freq", default=5e3, type=float)     # How often (time steps) we evaluate

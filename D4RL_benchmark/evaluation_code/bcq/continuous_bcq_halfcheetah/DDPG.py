@@ -56,8 +56,6 @@ class DDPG(object):
 		self.critic_optimizer = torch.optim.Adam(self.critic.parameters())
 
 
-
-
 	def select_action(self, state):
 		state = torch.FloatTensor(state.reshape(1, -1)).to(self.device)
 		return self.actor(state).cpu().data.numpy().flatten()
@@ -109,7 +107,6 @@ class DDPG(object):
 		
 		torch.save(self.actor.state_dict(), filename + "_actor")
 		torch.save(self.actor_optimizer.state_dict(), filename + "_actor_optimizer")
-
 
 	def load(self, filename):
 		self.critic.load_state_dict(torch.load(filename + "_critic"))

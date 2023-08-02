@@ -1,6 +1,8 @@
 import argparse
 import gym
 import numpy as np
+
+import sys
 import os
 import torch
 
@@ -103,9 +105,12 @@ def train_BCQ(env, state_dim, action_dim, max_action, device, output_dir, args):
 
     # Load buffer
     replay_buffer = utils.ReplayBuffer(state_dim, action_dim, device)
-    dataset       = env.get_dataset()
-    N = dataset['rewards'].shape[0]
-    print('Loading buffer!')
+
+    # --- D4RL_benchmark dataset replay buffer 에 담는 방법 --- #
+    print("USE loaded dataset")
+    dataset = env.get_dataset()
+    N       = dataset['rewards'].shape[0]
+
     for i in range(N-1):
         obs       = dataset['observations'][i]
         new_obs   = dataset['observations'][i+1]
@@ -114,10 +119,14 @@ def train_BCQ(env, state_dim, action_dim, max_action, device, output_dir, args):
         done_bool = bool(dataset['terminals'][i])
         replay_buffer.add(obs, action, new_obs, reward, done_bool)
     print('Loaded buffer')
+    # --- D4RL_benchmark dataset replay buffer 에 담는 방법 --- #
 
+
+    """
     # or manually load replay buffer
-    #replay_buffer.load(f"./buffers/{buffer_name}")
-    
+    print("USE trained dataset from behavioral agents")
+    replay_buffer.load(f"./buffers/{buffer_name}")
+    """
     evaluations    = []
     episode_num    = 0
     done           = True
@@ -157,7 +166,7 @@ def eval_policy(policy, env_name, seed, eval_episodes=10):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env_name", default="door-human-v0")    # OpenAI gym environment name
+    parser.add_argument("--env_name", default="halfcheetah-medium-v0")    # OpenAI gym environment name
     parser.add_argument("--seed", default=0, type=int)              # Sets Gym, PyTorch and Numpy seeds
     parser.add_argument("--buffer_name", default="Robust")          # Prepends name to filename
     parser.add_argument("--eval_freq", default=5e3, type=float)     # How often (time steps) we evaluate
@@ -173,6 +182,7 @@ if __name__ == "__main__":
     parser.add_argument("--train_behavioral", action="store_true")  # If true, train behavioral (DDPG)
     parser.add_argument("--generate_buffer", action="store_true")   # If true, generate buffer
     parser.add_argument("--output_dir", default="results")
+    parser.add_argument("--render", default="None")
     args = parser.parse_args()
     #dd4rl.set_dataset_path('/datasets')
 
@@ -206,7 +216,7 @@ if __name__ == "__main__":
     if not os.path.exists("./buffers"):
             os.makedirs("./buffers")
 
-    env = gym.make(args.env_name)
+    env = gym.make(args.env_name, render_mode = args.render)
 
     env.seed(args.seed)
     torch.manual_seed(args.seed)

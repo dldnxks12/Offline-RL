@@ -8,9 +8,9 @@ import d4rl
 import uuid
 import json
 
-import continuous_bcq_halfcheetah_random_v0.BCQ
-import continuous_bcq_halfcheetah_random_v0.DDPG as DDPG
-import continuous_bcq_halfcheetah_random_v0.utils as utils
+import continuous_bcq_halfcheetah.BCQ
+import continuous_bcq_halfcheetah.DDPG as DDPG
+import continuous_bcq_halfcheetah.utils as utils
 
 
 # Handles interactions with the environment, i.e. train behavioral or generate buffer
@@ -97,7 +97,7 @@ def train_BCQ(env, state_dim, action_dim, max_action, device, output_dir, args):
     buffer_name = f"{args.buffer_name}_{setting}"
 
     # Initialize policy
-    policy = continuous_bcq_halfcheetah_random_v0.BCQ.BCQ(state_dim, action_dim, max_action, device, args.discount, args.tau, args.lmbda, args.phi)
+    policy = continuous_bcq_halfcheetah.BCQ.BCQ(state_dim, action_dim, max_action, device, args.discount, args.tau, args.lmbda, args.phi)
 
     # Load buffer
     replay_buffer = utils.ReplayBuffer(state_dim, action_dim, device)
