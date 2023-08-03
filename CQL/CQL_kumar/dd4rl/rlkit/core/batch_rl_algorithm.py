@@ -174,7 +174,7 @@ class BatchRLAlgorithm(BaseRLAlgorithm, metaclass=abc.ABCMeta):
             self._end_epoch(epoch)
 
             # import ipdb; ipdb.set_trace()
-            ## After epoch visualize
+            ## After epoch visualize_bcq_td3+bc
             # if epoch % 50 == 0:
             #     self._visualize(policy=True, num_dir=300, alpha=0.05, iter=epoch)
             #     print ('Saved Plots ..... %d'.format(epoch))
@@ -242,7 +242,7 @@ class BatchRLAlgorithm(BaseRLAlgorithm, metaclass=abc.ABCMeta):
         plt.savefig('plots_hopper_correct_online_3e-4_n10_viz_sac_again/spectra_joined_' + (fig_label) + '.png')
 
     def _visualize(self, policy=False, q_function=False, num_dir=50, alpha=0.1, iter=None):
-        assert policy or q_function, "Both are false, need something to visualize"
+        assert policy or q_function, "Both are false, need something to visualize_bcq_td3+bc"
         # import ipdb; ipdb.set_trace()
         policy_weights = get_flat_params(self.trainer.policy)
         # qf1_weights = get_flat_params(self.trainer.qf1)
@@ -298,7 +298,7 @@ class BatchRLAlgorithm(BaseRLAlgorithm, metaclass=abc.ABCMeta):
             returns_plus_eval.append(eval_return_plus)
             returns_minus_eval.append(eval_return_minus)
         
-        # Now we visualize
+        # Now we visualize_bcq_td3+bc
         # import ipdb; ipdb.set_trace()
 
         q1_plus_eval = np.array(q1_plus_eval)

@@ -29,7 +29,7 @@ def parse_args(args):
     parser.add_argument("--output_iters", dest="output_iters", type=int, default=50)
     parser.add_argument("--model_file", dest="model_file", default="")
 
-    parser.add_argument("--visualize", dest="visualize", action="store_true", default=False)
+    parser.add_argument("--visualize_bcq_td3+bc", dest="visualize_bcq_td3+bc", action="store_true", default=False)
     parser.add_argument("--gpu", dest="gpu", default="")
 
     arg_parser = parser.parse_args()

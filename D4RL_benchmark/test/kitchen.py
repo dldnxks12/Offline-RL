@@ -8,7 +8,7 @@ env = gym.make('kitchen-complete-v0')
 # dd4rl abides by the OpenAI gym interface
 env.reset()
 
-# visualize -> dd4rl/kitchen/kitchen_envs.py -> render modify
+# visualize_bcq_td3+bc -> dd4rl/kitchen/kitchen_envs.py -> render modify
 #while True:
     #env.step(env.action_space.sample())
 
