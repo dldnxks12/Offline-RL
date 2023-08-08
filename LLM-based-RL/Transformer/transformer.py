@@ -107,17 +107,6 @@ def data_gen2(V, batch, nbatchs):
 
 if __name__ == "__main__":
 
-    # data_gen2가 제대로 작동하는지 확인
-    # 단어수: 11, 미니배치사이즈:1, 에폭당 미니배치:10
-    for data in data_gen2(11, 1, 10):
-        # 입력, teach_forcing의 입력, teach_forcing의 출력
-        print('data.src: ', data.src)
-        print('data.src_mask: ', data.src_mask)
-        print('data.trg: ', data.trg)
-        print('data.trg_y: ', data.trg_y)
-        print('data.trg_mask\n', data.trg_mask)
-    sys.exit()
-
     # Train the simple copy task.
     V = 11 # vocab size
 

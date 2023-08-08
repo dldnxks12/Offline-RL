@@ -14,6 +14,7 @@ class Embedding(nn.Module):
         super(Embedding, self).__init__()
         self.lut       = nn.Embedding(vocab, model_dim)
         self.model_dim = model_dim
+        self.vocab     = vocab
 
     def forward(self, x):
         # postional vector 가 더해지면서 임베딩 벡터 값이 희석되는 걸 방지하기 위해
