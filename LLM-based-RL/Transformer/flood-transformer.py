@@ -98,14 +98,18 @@ def data_gen2(V, batch, Nbatch, data):
 
 if __name__ == "__main__":
 
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    print(f"Device : {device}")
+
     # TODO : Load flood-data
     x_data = np.load('x_total.npy')
     y_data = np.expand_dims(np.load('y_total.npy'), axis = 1)
     x_data = np.round(x_data)
     y_data = np.round(y_data)
 
-    x_data = torch.FloatTensor(x_data).type('torch.LongTensor')
-    y_data = torch.FloatTensor(y_data).type('torch.LongTensor')
+    x_data = torch.FloatTensor(x_data).type('torch.LongTensor').to(device)
+    y_data = torch.FloatTensor(y_data).type('torch.LongTensor').to(device)
     data = torch.concatenate([x_data, y_data], dim = 1 )
     data = torch.concatenate([y_data, data], dim = 1 ) # 앞에 달린 애들은 1로 바꿀 것
 
@@ -115,8 +119,8 @@ if __name__ == "__main__":
 
     V = torch.max(data)
 
-    criterion = LabelSmoothing(size = V, padding_idx=0, smoothing=0.0)
-    model     = make_model(V, V, N=2) # N : stacked block
+    criterion = LabelSmoothing(size = V, padding_idx=0, smoothing=0.0).to(device)
+    model     = make_model(V, V, N=2).to(device) # N : stacked block
 
     #                   model_size, factor, warmup, optimizer
     model_opt = NoamOpt(model.src_embed[0].model_dim, 1, 1200,
