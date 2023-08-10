@@ -17,6 +17,11 @@
         (ex. Model-Agnostic Meta-Learning, MAML)
  
 
+        새로운 task 에 대한 정보가 들어왔을 때 기존의 weight 들을 update 하는 Offline Meta RL 과는 다르게
+        Prompt-DT 는 새로운 task 에 대해 fine-tuning X gradient update X
+
+
+
 --- 
 
 - `Background` 
