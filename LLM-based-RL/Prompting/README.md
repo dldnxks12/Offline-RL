@@ -56,4 +56,18 @@
         fine-tuning X. agent 는 이 trajectory 에서 얻는 정보들로 새 task에 대한 policy 를 생성해냄.
 
  
+
+---
+
+- `Result`
+
+    
+        1. Quantity - Quality 
+            A) Prompt 의 Quantity 는 별로 sensitive 하지 않다. 다만 Quality 는 신경써야한다.
+
+        2. OOD action 에 대해서도 few-shot generalization 가능?
+            A) 
+
+            
+
         
